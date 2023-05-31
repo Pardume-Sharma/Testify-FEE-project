@@ -62,3 +62,24 @@ window.onscroll = () =>{
       body.classList.remove('active');
    }
 }
+
+var email = document.getElementById("email")
+var pass = document.getElementById("pass")
+
+function login(){
+   if(email.value == 'admin@gmail.com'){
+      if(pass.value == 'admin'){
+         window.location.assign("admin.html")
+         console.log("admin!")
+      }else{
+         alert("Incorrect Password")
+      }
+   }else{
+      for(let i=0;i<localStorage.length;i++){
+         if(email.value == localStorage.key(i) && pass.value == localStorage.getItem(localStorage.key(i))){
+            window.location.assign("home.html")
+            break
+         }
+      }
+   }
+}

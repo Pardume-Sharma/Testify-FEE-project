@@ -8,9 +8,21 @@
     <title>Testify-Test</title>
     <link rel="icon" href="https://wyldeconnections.co.uk/wp-content/uploads/2020/10/HEX-PURPLE-Learning-Icon.png">
     <link rel="stylesheet" href="style.css" />
+    <style>
+    #timer-button {
+      color: white;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: green;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>    
 </head>
 
-<body>
     <section class="main">
 
         <div class="container">
@@ -65,8 +77,49 @@
 
     <button id="submit"><a id="submit" href="/feed/feed.html">Submit</a></button>
     </div>
+    
+  <button id="timer-button">Timer Started!!</button>
+
+  <script>
+    function startTimer(duration, display) {
+      var timer = duration;
+      var minutes, seconds;
+
+      var countdown = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          clearInterval(countdown);
+          display.textContent = "00:00";
+          submitForm(); 
+        }
+      }, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var timeInSeconds = 60; // Set the timer duration in seconds
+      var display = document.getElementById("timer-button");
+
+      startTimer(timeInSeconds, display);
+    });
+    function submitForm() {
+      if(timer==0)
+      {
+        document.querySelectorid("submit")
+      }
+      console.log("Form submitted automatically after time elapsed!");
+    }
+  </script>
 
     
 </body>
 
 </html>
+
+

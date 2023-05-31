@@ -73,18 +73,32 @@
    <form action="" method="post" enctype="multipart/form-data">
       <h3>register now</h3>
       <p>your name <span>*</span></p>
-      <input type="text" name="name" placeholder="enter your name" required maxlength="50" class="box">
+      <input type="text" name="name" id="name"placeholder="enter your name" required maxlength="50" class="box">
       <p>your email <span>*</span></p>
-      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box">
+      <input type="email" name="email" id="email"placeholder="enter your email" required maxlength="50" class="box">
       <p>your password <span>*</span></p>
-      <input type="password" name="pass" placeholder="enter your password" required maxlength="20" class="box">
+      <input type="password" name="pass" id="pass"placeholder="enter your password" required maxlength="20" class="box">
       <p>confirm password <span>*</span></p>
-      <input type="password" name="c_pass" placeholder="confirm your password" required maxlength="20" class="box">
+      <input type="password" name="c_pass" id="cpass"placeholder="confirm your password" required maxlength="20" class="box">
       <p>select profile <span>*</span></p>
       <input type="file" accept="image/*" required class="box">
-      <input type="submit" value="register new" name="submit" class="btn">
+      <!-- <input type="submit" value="register new" name="submit" class="btn"> -->
+      <button class="btn" onclick="register()">register new</button>
    </form>
+   <script>      
+      var name = document.getElementById("name")
+      var email = document.getElementById("email")
+      var cpass = document.getElementById("cpass")
+      var pass = document.getElementById("pass")
 
+      function register(){
+         if(pass.value == cpass.value){
+            localStorage.setItem(email,pass)
+         }else{
+            alert("Password Doesn't Match")
+         }
+      }
+   </script>
 </section>
 
 
